@@ -6,6 +6,7 @@ const Button = ({ text, ...props }) => {
       className={`${baseStyle} ${focusStyle} ${hoverStyle} ${disabledStyle} ${
         props.className ? props.className : ""
       }`}
+      disabled={props.disabled}
     >
       {text}
     </button>

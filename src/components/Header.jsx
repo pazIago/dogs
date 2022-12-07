@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Dogs } from "../assets/dogs-black.svg";
 import { ReactComponent as User } from "../assets/usuario.svg";
+import { UserContext } from "../context/UserContext";
 
 const Header = () => {
+  const { userData, userLogout } = useContext(UserContext);
+
   return (
-    <header className="shadow-md sticky top-0 z-10 bg-white">
-      <nav className="max-w-[800px] mx-auto flex justify-between items-center gap-2 p-2">
+    <header className="sticky top-0 z-20 bg-white shadow-md">
+      <nav className="mx-auto flex max-w-[800px] items-center justify-between gap-2 p-2">
         <NavLink className="py-2" to="/">
           <Dogs />
         </NavLink>
-        <NavLink
-          className="text-gray-800 flex gap-2 items-center relative -top-[1px]"
-          to="login"
-        >
-          Login / Criar <User/>
-        </NavLink>
+
+        {userData ? (
+          <>
+            <NavLink
+              className="relative -top-[1px] flex items-center gap-2 text-gray-800"
+              to="/conta"
+            >
+              {userData.nome}
+              <User />
+            </NavLink>
+            <button onClick={userLogout}>Sair</button>
+          </>
+        ) : (
+          <NavLink
+            className="relative -top-[1px] flex items-center gap-2 text-gray-800"
+            to="/login"
+          >
+            Login / Criar
+            <User />
+          </NavLink>
+        )}
       </nav>
     </header>
   );
