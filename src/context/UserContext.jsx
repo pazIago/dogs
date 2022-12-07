@@ -39,7 +39,6 @@ export const UserStorage = ({ children }) => {
     const json = await response.json();
     setUserData(json);
     setLogin(true);
-    console.log(json);
   }
 
   async function userLogin(username, password) {
@@ -48,7 +47,6 @@ export const UserStorage = ({ children }) => {
       setLoading(true);
       const { url, options } = TOKEN_POST({ username, password });
       const responseToken = await fetch(url, options);
-      console.log(responseToken);
       if (!responseToken.ok)
         throw new Error(
           `Error:${responseToken.status} ${

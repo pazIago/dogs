@@ -4,8 +4,10 @@ import Input from "../../components/Form/Input";
 import Button from "../../components/Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../context/UserContext";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Error from "../../components/Error";
+import Title from "../../components/Title";
+import Subtitle from "../../components/Subtitle";
 
 const LoginForm = () => {
   const username = useForm();
@@ -22,40 +24,37 @@ const LoginForm = () => {
 
   return (
     <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-      <h1 className="text-bold relative z-10 my-4 mx-0 mb-2 font-secondary text-5xl font-bold leading-none after:absolute after:bottom-1 after:-left-1 after:-z-10 after:block after:h-6 after:w-6 after:rounded-[0.2rem] after:bg-yellow-400">
-        Login
-      </h1>
+      <section>
+        <Title variant="primary" text="Login" />
+        <form className="mb-8 flex flex-col gap-1" onSubmit={handleSubmit}>
+          <Input label="Usuário" type="text" name="username" {...username} />
+          <Input label="Senha" type="password" name="password" {...password} />
+          {loading ? (
+            <Button disabled text="Carregando" />
+          ) : (
+            <Button text="Entrar" />
+          )}
 
-      <form className="mb-8 flex flex-col gap-1" onSubmit={handleSubmit}>
-        <Input label="Usuário" type="text" name="username" {...username} />
-        <Input label="Senha" type="password" name="password" {...password} />
-        {loading ? (
-          <Button disabled text="Carregando" />
-        ) : (
-          <Button text="Entrar" />
-        )}
-
-        <Error error={error} />
-      </form>
-      <Link
-        className="inline-block py-2 leading-none text-gray-600 after:block after:h-[2px] after:w-full after:bg-current"
-        to="/login/lost"
-      >
-        Perdeu a senha?
-      </Link>
-
-      <div className="mt-16">
-        <h2 className="font-secondary text-2xl font-semibold leading-none after:block after:h-2 after:w-12 after:rounded-[0.2rem] after:bg-gray-200">
-          Cadastre-se
-        </h2>
-        <p className="my-8">Ainda não possui conta? Cadastre-se no site!</p>
+          <Error error={error} />
+        </form>
         <Link
-          className={`${baseButtonStyle} ${hoverButtonStyle} ${focusButtonStyle}`}
-          to="/login/create"
+          className="inline-block py-2 leading-none text-gray-600 after:block after:h-[2px] after:w-full after:bg-current"
+          to="/login/lost"
         >
-          Cadastro
+          Perdeu a senha?
         </Link>
-      </div>
+
+        <div className="mt-16">
+          <Subtitle variant="primary" text="Cadastre-se" />
+          <p className="my-8">Ainda não possui conta? Cadastre-se no site!</p>
+          <Link
+            className={`${baseButtonStyle} ${hoverButtonStyle} ${focusButtonStyle}`}
+            to="/login/create"
+          >
+            Cadastro
+          </Link>
+        </div>
+      </section>
     </motion.div>
   );
 };
