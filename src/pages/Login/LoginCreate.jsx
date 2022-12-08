@@ -29,22 +29,23 @@ const LoginCreate = () => {
   }
 
   return (
-    <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-      <section>
-        <Title text="Cadastre-se" variant="primary" />
-        <form className="transition" onSubmit={handleSubmit}>
-          <Input label="Usuário" type="text" name="username" {...username} />
-          <Input label="E-mail" type="email" name="email" {...email} />
-          <Input label="Senha" type="password" name="password" {...password} />
-          {loading ? (
-            <Button disabled text="Carregando" />
-          ) : (
-            <Button text="Cadastrar" />
-          )}
-          <Error error={errorMsg} />
-        </form>
-      </section>
-    </motion.div>
+    <motion.section
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
+      <Title text="Cadastre-se" variant="primary" />
+      <form className="transition" onSubmit={handleSubmit}>
+        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="E-mail" type="email" name="email" {...email} />
+        <Input label="Senha" type="password" name="password" {...password} />
+        {loading ? (
+          <Button disabled text="Carregando" />
+        ) : (
+          <Button text="Cadastrar" />
+        )}
+        <Error error={errorMsg} />
+      </form>
+    </motion.section>
   );
 };
 

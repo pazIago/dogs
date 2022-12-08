@@ -7,6 +7,7 @@ const useScreenSize = (size) => {
       const screenSize = window.matchMedia(size);
       setMatch(screenSize.matches);
     }
+    changeMatch()
     window.addEventListener("resize", changeMatch);
     return () => {
       window.removeEventListener("resize", changeMatch);

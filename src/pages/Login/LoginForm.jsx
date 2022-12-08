@@ -23,39 +23,40 @@ const LoginForm = () => {
   }
 
   return (
-    <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-      <section>
-        <Title variant="primary" text="Login" />
-        <form className="mb-8 flex flex-col gap-1" onSubmit={handleSubmit}>
-          <Input label="Usuário" type="text" name="username" {...username} />
-          <Input label="Senha" type="password" name="password" {...password} />
-          {loading ? (
-            <Button disabled text="Carregando" />
-          ) : (
-            <Button text="Entrar" />
-          )}
+    <motion.section
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
+      <Title variant="primary" text="Login" />
+      <form className="mb-8 flex flex-col gap-1" onSubmit={handleSubmit}>
+        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="Senha" type="password" name="password" {...password} />
+        {loading ? (
+          <Button disabled text="Carregando" />
+        ) : (
+          <Button text="Entrar" />
+        )}
 
-          <Error error={error} />
-        </form>
+        <Error error={error} />
+      </form>
+      <Link
+        className="inline-block py-2 leading-none text-gray-600 after:block after:h-[2px] after:w-full after:bg-current"
+        to="/login/lost"
+      >
+        Perdeu a senha?
+      </Link>
+
+      <div className="mt-16">
+        <Subtitle variant="primary" text="Cadastre-se" />
+        <p className="my-8">Ainda não possui conta? Cadastre-se no site!</p>
         <Link
-          className="inline-block py-2 leading-none text-gray-600 after:block after:h-[2px] after:w-full after:bg-current"
-          to="/login/lost"
+          className={`${baseButtonStyle} ${hoverButtonStyle} ${focusButtonStyle}`}
+          to="/login/create"
         >
-          Perdeu a senha?
+          Cadastro
         </Link>
-
-        <div className="mt-16">
-          <Subtitle variant="primary" text="Cadastre-se" />
-          <p className="my-8">Ainda não possui conta? Cadastre-se no site!</p>
-          <Link
-            className={`${baseButtonStyle} ${hoverButtonStyle} ${focusButtonStyle}`}
-            to="/login/create"
-          >
-            Cadastro
-          </Link>
-        </div>
-      </section>
-    </motion.div>
+      </div>
+    </motion.section>
   );
 };
 
