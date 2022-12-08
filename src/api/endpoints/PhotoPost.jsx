@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import APIButton from "../../components/APIButton";
-import FormInput from "../../components/FormInput";
+import APIButton from "../../components/API/APIButton";
+import FormInput from "../../components/API/FormInput";
 
 const PhotoPost = () => {
   const [token, setToken] = useState("");

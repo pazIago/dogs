@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import APIButton from "../../components/APIButton";
+import APIButton from "../../components/API/APIButton";
 
 const PhotoGet = () => {
   const [id, setId] = useState("");

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import Title from "../../components/Title";
+import Title from "../../components/Geral/Title";
 import Input from "../../components/Form/Input";
 import Button from "../../components/Form/Button";
 import useForm from "../../hooks/useForm";
 import { USER_POST } from "../../api/api-data";
 import { UserContext } from "../../context/UserContext";
 import useFetch from "../../hooks/useFetch";
-import Error from "../../components/Errortext";
+import Error from "../../components/Geral/Errortext";
 
 const LoginCreate = () => {
   const username = useForm();

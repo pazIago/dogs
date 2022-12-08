@@ -5,7 +5,7 @@ import Button from "../../components/Form/Button";
 import Input from "../../components/Form/Input";
 import React, { useEffect, useState } from "react";
 import { PHOTO_POST } from "../../api/api-data";
-import Error from "../../components/Errortext";
+import Error from "../../components/Geral/Errortext";
 import { useNavigate } from "react-router-dom";
 
 const UserPhotoPost = () => {
@@ -13,7 +13,7 @@ const UserPhotoPost = () => {
   const peso = useForm("number");
   const idade = useForm("number");
   const [img, setImg] = useState({});
-  const { data, error, loading, request } = useFetch();
+  const { data, errorMsg, loading, request } = useFetch();
   const goTo = useNavigate();
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button text="Enviar" />
         )}
-        {error && <Error error={error} />}
+        {errorMsg && <Error error={errorMsg} />}
       </form>
 
       <div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Title from "../Title";
+import Title from "../Geral/Title";
 import UserHeaderNav from "./UserHeaderNav";
 
 const UserHeader = () => {

@@ -5,9 +5,9 @@ import Button from "../../components/Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../context/UserContext";
 import { motion } from "framer-motion";
-import Error from "../../components/Errortext";
-import Title from "../../components/Title";
-import Subtitle from "../../components/Subtitle";
+import Error from "../../components/Geral/Errortext";
+import Title from "../../components/Geral/Title";
+import Subtitle from "../../components/Geral/Subtitle";
 
 const LoginForm = () => {
   const username = useForm();
