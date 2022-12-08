@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import LoginCreate from "./Login/LoginCreate";
-import LoginForm from "./Login/LoginForm";
-import LoginLost from "./Login/LoginLost";
-import LoginReset from "./Login/LoginReset";
-import loginImg from "../assets/login.jpg";
+import { UserContext } from "../../context/UserContext";
+import LoginCreate from "./LoginCreate";
+import LoginForm from "./LoginForm";
+import LoginLost from "./LoginLost";
+import LoginReset from "./LoginReset";
+import loginImg from "../../assets/login.jpg";
 
 const Login = () => {
   const { login } = useContext(UserContext);

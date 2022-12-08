@@ -7,7 +7,7 @@ import useForm from "../../hooks/useForm";
 import { USER_POST } from "../../api/api-data";
 import { UserContext } from "../../context/UserContext";
 import useFetch from "../../hooks/useFetch";
-import Error from "../../components/Error";
+import Error from "../../components/Errortext";
 
 const LoginCreate = () => {
   const username = useForm();

@@ -5,7 +5,7 @@ import Button from "../../components/Form/Button";
 import useForm from "../../hooks/useForm";
 import { UserContext } from "../../context/UserContext";
 import { motion } from "framer-motion";
-import Error from "../../components/Error";
+import Error from "../../components/Errortext";
 import Title from "../../components/Title";
 import Subtitle from "../../components/Subtitle";
 

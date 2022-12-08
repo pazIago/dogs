@@ -5,7 +5,7 @@ import { ReactComponent as User } from "../assets/usuario.svg";
 import { UserContext } from "../context/UserContext";
 
 const Header = () => {
-  const { userData, userLogout } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   return (
     <header className="sticky top-0 z-20 bg-white shadow-md">
@@ -23,7 +23,6 @@ const Header = () => {
               {userData.nome}
               <User />
             </NavLink>
-            <button onClick={userLogout}>Sair</button>
           </>
         ) : (
           <NavLink
