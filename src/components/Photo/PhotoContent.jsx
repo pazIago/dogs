@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Title from "../Geral/Title";
 import PhotoComments from "./PhotoComments";
 import { ReactComponent as ViewsSvg } from "../../assets/visualizacao-black.svg";
-import PhotoCommentsForm from "./PhotoCommentsForm";
 
 const PhotoContent = ({ data }) => {
   const { photo, comments } = data;
@@ -16,15 +15,15 @@ const PhotoContent = ({ data }) => {
       className="mx-auto grid h-[36rem] grid-cols-[36rem_20rem] grid-rows-[auto_1fr_auto] overflow-hidden rounded-[.2rem] bg-white max-lg:h-auto max-lg:max-h-[calc(100vh-4rem)] max-lg:grid-cols-[minmax(20rem,_40rem)] max-lg:overflow-y-auto"
     >
       <div className="row-span-full max-lg:row-span-1">
-        <img src={photo.src} alt={photo.title} />
+        <img className="h-full" src={photo.src} alt={photo.title} />
       </div>
-      <div className="px-4 pt-4 pb-0">
+      <div className="px-8 pt-8 pb-4">
         <div className="mb-4 flex justify-between opacity-50">
           <Link className="hover:underline" to={`/perfil/${photo.author}`}>
             @{photo.author}
           </Link>
-          <span className="flex items-center [&>li]:mr-8">
-            <ViewsSvg />
+          <span className="flex items-center">
+            <ViewsSvg className="mr-1" />
             {photo.acessos}
           </span>
         </div>
@@ -40,8 +39,8 @@ const PhotoContent = ({ data }) => {
             {photo.idade} {photo.idade === 1 ? "ano" : "anos"}
           </li>
         </ul>
-        <PhotoComments id={photo.id} comments={comments} />
       </div>
+      <PhotoComments id={photo.id} comments={comments} />
     </motion.div>
   );
 };
