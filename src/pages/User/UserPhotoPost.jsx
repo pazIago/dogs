@@ -43,7 +43,7 @@ const UserPhotoPost = () => {
     <motion.section
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="mb-8 grid grid-cols-2 gap-x-8"
+      className="mb-8 grid grid-cols-2 items-center gap-8 max-sm:grid-cols-1"
     >
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
@@ -56,12 +56,12 @@ const UserPhotoPost = () => {
           id="img"
           onChange={handleImgChange}
         />
-        {loading ? (
-          <Button text="Enviando..." disabled />
-        ) : (
-          <Button text="Enviar" />
-        )}
-        {errorMsg && <Error error={errorMsg} />}
+          {loading ? (
+            <Button text="Enviando..." disabled />
+          ) : (
+            <Button text="Enviar" />
+          )}
+          {errorMsg && <Error error={errorMsg} />}
       </form>
 
       <div>

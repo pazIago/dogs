@@ -4,7 +4,7 @@ import Feed from "../components/Feed/Feed";
 
 const Home = () => {
   return (
-    <motion.section className="mx-auto mt-16 w-4/5 max-w-[800px]">
+    <motion.section className="mx-auto mt-8 w-4/5 max-w-[800px]">
       <Feed />
     </motion.section>
   );

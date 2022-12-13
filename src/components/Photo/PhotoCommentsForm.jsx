@@ -4,7 +4,7 @@ import { COMMENT_POST } from "../../api/api-data";
 import useFetch from "../../hooks/useFetch";
 import Error from "../Geral/Errortext";
 
-const PhotoCommentsForm = ({ id, setComments }) => {
+const PhotoCommentsForm = ({ id, setComments, single }) => {
   const [comment, setComment] = useState("");
   const [hover, setHover] = useState(false);
   const { request, errorMsg } = useFetch();
@@ -20,7 +20,9 @@ const PhotoCommentsForm = ({ id, setComments }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="m-4 grid grid-cols-[1fr_auto] items-stretch"
+      className={`${
+        single ? "mx-1 my-0" : "m-4"
+      } grid grid-cols-[1fr_auto] items-stretch`}
     >
       <textarea
         value={comment}

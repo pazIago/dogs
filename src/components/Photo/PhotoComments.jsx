@@ -6,10 +6,14 @@ const PhotoComments = (props) => {
   const [comments, setComments] = useState(() => props.comments);
   const commentList = Object.values(comments).reverse();
   const { login } = useContext(UserContext);
-  
+
   return (
     <>
-      <ul className="overflow-y-scroll break-words px-8">
+      <ul
+        className={`overflow-y-scroll break-words ${
+          props.single ? "" : "px-8"
+        }`}
+      >
         {commentList.map((comment) => (
           <li key={comment.comment_ID} className="mb-2 leading-[1.2]">
             <b>{comment.comment_author}:</b>
@@ -18,7 +22,13 @@ const PhotoComments = (props) => {
         ))}
       </ul>
       <div>
-        {login && <PhotoCommentsForm setComments={setComments} id={props.id} />}
+        {login && (
+          <PhotoCommentsForm
+            single={props.single}
+            setComments={setComments}
+            id={props.id}
+          />
+        )}
       </div>
     </>
   );

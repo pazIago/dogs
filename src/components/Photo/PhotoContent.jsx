@@ -1,27 +1,46 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Title from "../Geral/Title";
 import PhotoComments from "./PhotoComments";
+import { UserContext } from "../../context/UserContext";
 import { ReactComponent as ViewsSvg } from "../../assets/visualizacao-black.svg";
+import PhotoDelete from "./PhotoDelete";
+import Image from "../Geral/Image";
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const { photo, comments } = data;
+  const { userData } = useContext(UserContext);
+
   return (
     <motion.div
       transition={{ duration: 0.2 }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="mx-auto grid h-[36rem] grid-cols-[36rem_20rem] grid-rows-[auto_1fr_auto] overflow-hidden rounded-[.2rem] bg-white max-lg:h-auto max-lg:max-h-[calc(100vh-4rem)] max-lg:grid-cols-[minmax(20rem,_40rem)] max-lg:overflow-y-auto"
+      className={`mx-auto grid 
+      ${single ? "h-auto grid-cols-1 mb-4" : "h-[36rem] grid-cols-[36rem_20rem]"} 
+    grid-rows-[auto_1fr_auto] overflow-hidden rounded-[.2rem] bg-white max-lg:h-auto max-lg:max-h-[calc(100vh-4rem)] max-lg:grid-cols-[minmax(20rem,_40rem)] max-lg:overflow-y-auto`}
     >
-      <div className="row-span-full max-lg:row-span-1">
-        <img className="h-full" src={photo.src} alt={photo.title} />
+      <div
+        className={`${
+          single ? "row-start-1 overflow-hidden rounded-md" : "row-span-full"
+        } max-lg:row-span-1`}
+      >
+        <Image
+          className={`h-full object-cover object-center`}
+          src={photo.src}
+          alt={photo.title}
+        />
       </div>
-      <div className="px-8 pt-8 pb-4">
+      <div className={`${single ? "pt-4" : "px-8 pt-8 pb-4"}`}>
         <div className="mb-4 flex justify-between opacity-50">
-          <Link className="hover:underline" to={`/perfil/${photo.author}`}>
-            @{photo.author}
-          </Link>
+          {userData && userData.username === photo.author ? (
+            <PhotoDelete id={photo.id} />
+          ) : (
+            <Link className="hover:underline" to={`/user/${photo.author}`}>
+              @{photo.author}
+            </Link>
+          )}
           <span className="flex items-center">
             <ViewsSvg className="mr-1" />
             {photo.acessos}
@@ -40,7 +59,7 @@ const PhotoContent = ({ data }) => {
           </li>
         </ul>
       </div>
-      <PhotoComments id={photo.id} comments={comments} />
+      <PhotoComments single={single} id={photo.id} comments={comments} />
     </motion.div>
   );
 };
