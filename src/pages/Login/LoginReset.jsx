@@ -8,6 +8,7 @@ import Title from "../../components/Geral/Title";
 import Errortext from "../../components/Geral/Errortext";
 import { useNavigate } from "react-router-dom";
 import Head from "../../components/Geral/Head";
+import { motion } from "framer-motion";
 
 const LoginReset = () => {
   const [login, setLogin] = useState();
@@ -37,9 +38,12 @@ const LoginReset = () => {
       if (response.ok) goTo("/login");
     }
   }
-
+  
   return (
-    <div>
+    <motion.section
+      initial={{ x: -20, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+    >
       <Head title="Resete sua Senha" />
       <Title text="Resete a Senha" />
       <form onSubmit={handleSubmit}>
@@ -56,7 +60,7 @@ const LoginReset = () => {
         )}
       </form>
       <Errortext error={errorMsg} />
-    </div>
+    </motion.section>
   );
 };
 

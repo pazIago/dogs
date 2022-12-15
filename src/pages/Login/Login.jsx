@@ -21,7 +21,7 @@ const Login = () => {
         className="h-full object-cover object-center max-sm:hidden"
         alt=""
       />
-      <div className="max-w-lg p-8 max-sm:mx-auto max-sm:py-4">
+      <div className="max-w-lg mt-[20vh] p-8 max-sm:mx-auto max-sm:py-4">
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="create" element={<LoginCreate />} />

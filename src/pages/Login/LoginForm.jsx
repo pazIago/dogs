@@ -39,7 +39,7 @@ const LoginForm = () => {
           <Button text="Entrar" />
         )}
 
-        <Error error={error} />
+        <Error error={error && "Dados incorretos"} />
       </form>
       <Link
         className="inline-block py-2 leading-none text-gray-600 after:block after:h-[2px] after:w-full after:bg-current"

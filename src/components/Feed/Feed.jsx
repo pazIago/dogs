@@ -17,7 +17,6 @@ const Feed = ({ userData }) => {
         if (scroll > screenH * 0.9 && !cooldown) {
           cooldown = true;
           setPages((pages) => [...pages, pages.length + 1]);
-          console.log("ativou");
           setTimeout(() => {
             cooldown = false;
           }, 500);

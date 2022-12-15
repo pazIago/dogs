@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <UserStorage>
         <Header />
-        <div className="font-primary">
+        <main className="min-h-screen font-primary">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
@@ -34,7 +34,7 @@ function App() {
             <Route path="api" element={<Api />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </main>
         <Footer />
       </UserStorage>
     </BrowserRouter>

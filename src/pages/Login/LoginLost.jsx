@@ -7,6 +7,7 @@ import useFetch from "../../hooks/useFetch";
 import useForm from "../../hooks/useForm";
 import Errortext from "../../components/Geral/Errortext";
 import Head from "../../components/Geral/Head";
+import { motion } from "framer-motion";
 
 const LoginLost = () => {
   const login = useForm();
@@ -25,7 +26,11 @@ const LoginLost = () => {
   }
 
   return (
-    <section className="space-y-8">
+    <motion.section
+      initial={{ x: -20, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="space-y-8"
+    >
       <Head title="Perdeu a Senha?" />
 
       <Title text="Perdeu a senha?" />
@@ -43,7 +48,7 @@ const LoginLost = () => {
           <Errortext error={errorMsg} />
         </form>
       )}
-    </section>
+    </motion.section>
   );
 };
 
