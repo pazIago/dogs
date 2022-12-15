@@ -8,6 +8,7 @@ import { USER_POST } from "../../api/api-data";
 import { UserContext } from "../../context/UserContext";
 import useFetch from "../../hooks/useFetch";
 import Error from "../../components/Geral/Errortext";
+import Head from "../../components/Geral/Head";
 
 const LoginCreate = () => {
   const username = useForm();
@@ -33,6 +34,8 @@ const LoginCreate = () => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
     >
+      <Head title="Criar conta" />
+
       <Title text="Cadastre-se" variant="primary" />
       <form className="transition" onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

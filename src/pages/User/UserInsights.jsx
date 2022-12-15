@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Head from "../../components/Geral/Head";
 
 const UserInsights = () => {
   return (
-    <div>UserInsights</div>
-  )
-}
+    <div>
+      <Head title="Insights" />
+    </div>
+  );
+};
 
-export default UserInsights
+export default UserInsights;

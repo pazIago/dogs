@@ -6,6 +6,7 @@ import Title from "../../components/Geral/Title";
 import useFetch from "../../hooks/useFetch";
 import useForm from "../../hooks/useForm";
 import Errortext from "../../components/Geral/Errortext";
+import Head from "../../components/Geral/Head";
 
 const LoginLost = () => {
   const login = useForm();
@@ -25,6 +26,8 @@ const LoginLost = () => {
 
   return (
     <section className="space-y-8">
+      <Head title="Perdeu a Senha?" />
+
       <Title text="Perdeu a senha?" />
 
       {data ? (

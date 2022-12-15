@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { PHOTO_POST } from "../../api/api-data";
 import Error from "../../components/Geral/Errortext";
 import { useNavigate } from "react-router-dom";
+import Head from "../../components/Geral/Head";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -45,6 +46,7 @@ const UserPhotoPost = () => {
       animate={{ opacity: 1, x: 0 }}
       className="mb-8 grid grid-cols-2 items-center gap-8 max-sm:grid-cols-1"
     >
+      <Head title="Criar Postagem" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />

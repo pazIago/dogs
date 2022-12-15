@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Error from "../../components/Geral/Errortext";
 import Title from "../../components/Geral/Title";
 import Subtitle from "../../components/Geral/Subtitle";
+import Head from "../../components/Geral/Head";
 
 const LoginForm = () => {
   const username = useForm();
@@ -27,6 +28,7 @@ const LoginForm = () => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
     >
+      <Head title="Login" />
       <Title variant="primary" text="Login" />
       <form className="mb-8 flex flex-col gap-1" onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
