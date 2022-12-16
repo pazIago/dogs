@@ -10,7 +10,7 @@ import Login from "./pages/Login/Login";
 import User from "./pages/User/User";
 import Photo from "./components/Photo/Photo";
 import UserProfile from "./pages/User/UserProfile";
-import NotFound from "./pages/NotFound.jsx";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
