@@ -4,7 +4,7 @@ import Feed from "../../components/Feed/Feed";
 import Head from "../../components/Geral/Head";
 import UserHeader from "../../components/User/UserHeader";
 import { UserContext } from "../../context/UserContext";
-import NotFound from "../Notfound";
+import NotFound from "../NotFound";
 import UserInsights from "./UserInsights";
 import UserPhotoPost from "./UserPhotoPost";
 
