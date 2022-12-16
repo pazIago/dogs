@@ -7,13 +7,15 @@ const UserGraphs = ({ data }) => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const graphData = data.map((item) => {
-      return { x: item.title, y: Number(item.acessos) };
-    });
-    setTotal(
-      data.map(({ acessos }) => Number(acessos)).reduce((a, b) => a + b)
-    );
-    setGraph(graphData);
+    if (data && data.length > 0) {
+      const graphData = data.map(({title, acessos}) => {
+        return { x: title, y: Number(acessos) };
+      });
+      setTotal(
+        data.map(({ acessos }) => Number(acessos)).reduce((a, b) => a + b)
+      );
+      setGraph(graphData);
+    }
   }, [data]);
 
   return (
@@ -25,22 +27,26 @@ const UserGraphs = ({ data }) => {
       <div className={`${statsItemStyle} col-span-full p-8 text-2xl`}>
         <p className="font-secondary">Acessos: {total}</p>
       </div>
-      <div className={`${statsItemStyle}`}>
-        <VictoryPie
-          data={graph}
-          innerRadius={50}
-          padding={{ top: 20, botton: 20, left: 80, right: 80 }}
-          style={{
-            data: { fillOpacity: 0.9, stroke: "#fff", strokeWidth: 2 },
-            labels: { fontSize: 14, fill: "#333" },
-          }}
-        />
-      </div>
-      <div className={`${statsItemStyle}`}>
-        <VictoryChart>
-          <VictoryBar alignment="start" data={graph} />
-        </VictoryChart>
-      </div>
+      {graph && (
+        <>
+          <div className={`${statsItemStyle}`}>
+            <VictoryPie
+              data={graph}
+              innerRadius={50}
+              padding={{ top: 20, botton: 20, left: 80, right: 80 }}
+              style={{
+                data: { fillOpacity: 0.9, stroke: "#fff", strokeWidth: 2 },
+                labels: { fontSize: 14, fill: "#333" },
+              }}
+            />
+          </div>
+          <div className={`${statsItemStyle}`}>
+            <VictoryChart>
+              <VictoryBar alignment="start" data={graph} />
+            </VictoryChart>
+          </div>
+        </>
+      )}
     </motion.section>
   );
 };
