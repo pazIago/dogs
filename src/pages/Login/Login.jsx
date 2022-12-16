@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import LoginLost from "./LoginLost";
 import LoginReset from "./LoginReset";
 import loginImg from "../../assets/login.jpg";
-import NotFound from "../Notfound";
+import NotFound from "../NotFound";
 
 const Login = () => {
   const { login } = useContext(UserContext);
